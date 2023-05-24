@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        meta charset="UTF-8">
-        <title>View Data</title>
-        <link rel="stylesheet" href="/assets/styles.css">
-        <style>
-            /* Add specific styles for view.html here */
-            .container {
+<head>
+    <meta charset="UTF-8">
+    <title>View Data</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <style>
+        /* Add specific styles for view.html here */
+        .container {
                 max-width: 800px;
                 margin: 0 auto;
                 padding: 20px;
@@ -123,15 +123,14 @@
             });
             document.body.onload = function() {
             // Get the selected theme from localStorage
-            var select = localStorage.getItem('selectedTheme');
+            var selectedTheme = localStorage.getItem('selectedTheme');
     
             // If a theme has been selected, apply it
-            if (select) {
+            if (selectedTheme) {
                 document.body = selectedTheme + '-theme';
             }
         };
         </script>
         
     </body>   
-    </head>
 </html>

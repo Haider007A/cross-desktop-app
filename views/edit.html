@@ -187,6 +187,44 @@
                 // Reset the form
                 editForm.reset();
             });
-            </style>
-    </head>
+
+            const fs = require('fs');
+
+            function updateData(updatedEntry) {
+              // Find the entry to update based on the name
+              const entryToUpdate = jsonData.find(entry => entry.name === selectedEntry.textContent.split(' - ')[0]);
+
+              if (entryToUpdate) {
+                   // Update the properties of the entry with the updated values
+                   entryToUpdate.name = updatedEntry.name;
+                   entryToUpdate.age = updatedEntry.age;
+                   entryToUpdate.weight = updatedEntry.weight;
+                   entryToUpdate.height = updatedEntry.height;
+                   entryToUpdate.bmi = updatedEntry.bmi;
+                   entryToUpdate.caloriesBurned = updatedEntry.caloriesBurned;
+
+                   // Convert the updated data structure back into JSON format
+                   const updatedJsonData = JSON.stringify(jsonData, null, 2);
+
+                  // Write the updated JSON content back to the file
+                  fs.writeFileSync('./data/fitness_data.json', updatedJsonData, 'utf8');
+
+                 console.log('Data updated:', updatedEntry);
+            } else {
+                 console.log('Entry not found');
+            }
+        }
+
+        document.body.onload = function() {
+           // Get the selected theme from localStorage
+           var selectedTheme = localStorage.getItem('selectedTheme');
+ 
+           // If a theme has been selected, apply it
+           if (selectedTheme) {
+               document.body.className = selectedTheme + '-theme';
+            }
+        };
+
+    </script>
+    </body>
 </html>
