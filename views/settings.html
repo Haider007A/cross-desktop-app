@@ -71,6 +71,15 @@
     </style> 
     </head>
     <body>
+        <h1>Settings</h1>
+        <form id="settings-form">
+            <label for="theme">Theme:</label>
+            <select id="theme">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </form>
+        <a href="index.html">Back to Home</a>
         <script>
             document.getElementById('settings-form').addEventListener('submit', function(e) {
                 // Prevent the form from being submitted to a server
